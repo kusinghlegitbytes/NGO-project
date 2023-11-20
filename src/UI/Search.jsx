@@ -7,6 +7,9 @@ const Search = () => {
     console.log("clicked")
     setShowFilter(prevState=>!prevState)
   }
+  const formatLabel = (value) => {
+    return `Up To ${value} km`;
+  };
   return <Fragment>
     <div className='search-box-container'>
       <input type='search' className='search-box' style={showFilter?{height:"100px"}:{}} placeholder='Search Here...'/>
@@ -17,12 +20,16 @@ const Search = () => {
         }}>
           <Slider
             size="small"
-            defaultValue={70}
+            defaultValue={0}
             aria-label="Small"
-            valueLabelDisplay="on"
+            valueLabelDisplay="auto"
+            valueLabelFormat={formatLabel}
+            min={0}
+            max={50}
             sx={{ 
               color: '#656565',
             }}
+
           />
         </Box>
       </div>}
