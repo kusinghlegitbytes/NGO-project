@@ -139,6 +139,7 @@ code {
   position: absolute;
   top:60px;
   left:50px;
+  animation: searchSlider 0.5s ease;
  }
  .search-box-height{
   height: 936px;
@@ -159,6 +160,7 @@ code {
   text-transform: capitalize;
   padding-left: 10px;
   position: relative;
+  transition: height 0.5s ease;
  }
  .search-filter-icon{
   position: absolute;
@@ -273,4 +275,15 @@ code {
   text-decoration: none;
   color: #656565;
  }
+}
+@keyframes searchSlider {
+  0%{
+    visibility: hidden;
+  }
+  50%{
+    visibility: hidden;
+  }
+  100%{
+    visibility: visible;
+  }
 }
