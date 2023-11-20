@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className='home'>
         <Search/>
-        <div className='tags-container flex flex-row'>
+        <div className='tags-container flex gap-1 flex-row'>
             <div className='tag'>IT Service</div>
             <div className='tag'>IT Service</div>
             <div className='tag'>IT Service</div>
