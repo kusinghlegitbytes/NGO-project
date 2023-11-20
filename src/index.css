@@ -130,16 +130,126 @@ code {
   margin: 0px 60px 10px 60px;
   padding-top: 18px;
  }
- .bg-circle-blue-2{
-    display: none;
+ .search-box{
+  width: 355px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25) inset;
+  color: #656565;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  padding-left: 10px;
+  position: relative;
  }
- .bg-circle-green-2{
-    display: none;
- }
- .bg-circle-orange-2, .bg-circle-orange-3{
-    display: none;
- }
- .bg-circle-red-3, .bg-circle-red-2{
+
+ .bg-circle-blue-2, .bg-circle-green-2, .bg-circle-orange-2, .bg-circle-orange-3, .bg-circle-red-3, .bg-circle-red-2{
     display: none;
  } 
+ .flex{
+  display: flex;
+  justify-content: space-around;
+ }
+ .flex-row{
+  flex-direction: row;
+ }
+ .tags-container{
+    width: 90%;
+    margin: 10px auto;
+ }
+ .tag{
+  border-radius: 10px;
+  border: 1px solid #CD3B00;
+  background: rgba(101, 101, 101, 0.02);
+  padding: 5px 10px;
+  color: #CD3B00;
+ }
+ .filter-text-container{
+  width: 80%;
+  margin: auto;
+  text-align: left;
+ }
+ .filter-text-container span{
+  color: #000;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+ }
+ .organization-container{
+  width: 80%;
+  margin: 10px auto;
+ }
+ .organization-card{
+    margin-top: 10px;
+    /* width: 355px;
+    height: 170px; */
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.30);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25) inset;
+    padding: 10px;
+ }
+ .organization-card-main{
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  text-align: left;
+ }
+ .organization-card-text{
+  padding: 0px 10px;
+  /* width: 100%; */
+ }
+ .organization-card-icon{
+  height: 34px;
+  width: 34px;
+  background-color: white;
+  z-index: 1;
+  border-radius: 50%;
+ }
+ .organization-card-icon img{
+  height: 34px;
+  width: 34px;
+ }
+ .organization-title{
+  color: #000;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+ }
+ .organization-address, .organization-description{
+  color: #656565;
+  font-family: Poppins;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+ }
+ .organization-card-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+ .organization-card-footer div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+ }
+ .organization-card-footer div a{
+  text-decoration: none;
+  color: #656565;
+ }
 }
