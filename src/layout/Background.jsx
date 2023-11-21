@@ -3,7 +3,7 @@ import Logo from '../UI/Logo'
 const Background = ({children}) => {
   return <Fragment>
     <div className='app-background'>
-        <Logo/>
+        {/* <Logo/> */}
         {children}
         {/* <div className='bg-circle-blue-1'></div>
         <div className='bg-circle-blue-2'></div>

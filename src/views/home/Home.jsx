@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Search from '../../UI/Search'
 import { LuLink } from "react-icons/lu";
 import { LuPhone } from "react-icons/lu";
+import Logo from '../../UI/Logo';
 const Home = () => {
-  return (
+  return ( <Fragment>
+    <Logo/>
     <div className='home'>
         <Search/>
         <div className='tags-container flex gap-1 flex-row'>
@@ -65,6 +67,7 @@ const Home = () => {
             </div>
         </div>
     </div>
+    </Fragment>
   )
 }
 

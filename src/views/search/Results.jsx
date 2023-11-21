@@ -4,7 +4,7 @@ import { LuPhone } from "react-icons/lu";
 const Results = () => {
   return (
     <div className='app-background'>
-      <div className='home'>
+      <div className='home mt-1'>
         <Search/>
         <div className='organization-container'>
             <div className='organization-card'>

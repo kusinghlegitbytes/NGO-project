@@ -612,14 +612,18 @@ const Search = () => {
   const handleChange=(e)=>{
     setQuery(e.target.value)
   }
+  const handleBlur=()=>{
+    console.log("===========")
+  }
   const filteredResults=results.filter(item=>item.title.startsWith(query))
   return <Fragment>
-    <div className='search-box-container'>
+    <div className='relative'>
       <input 
         type='search' 
-        className='search-box' 
+        className='w-80 h-12 shadow-inner' 
         placeholder='Search Here...'
         onChange={handleChange}
+        onFocus={handleBlur}
       />
       <div className='search-filter-icon'><img src="/assets/imgs/mi_filter.png" onClick={handleShowFilter}/></div>
       {showFilter && <RangeSlider/>}
