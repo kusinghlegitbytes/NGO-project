@@ -13,7 +13,7 @@ code {
 }
 .app-background{
   background-color: rgb(245,245,245);
-  /* height: auto; */
+  overflow: hidden;
   width: 100%;
   position: relative;
 }
@@ -83,6 +83,7 @@ code {
 .home{
   text-align: center;
 }
+
 @media only screen and (max-width: 430px) {
  .app-background{
   height: 932px;
@@ -94,7 +95,7 @@ code {
   flex-shrink: 0;
   border-radius: 327px;
   background: rgba(0, 86, 123, 0.40);
-  filter: blur(35px);
+  filter: blur(100px);
   right:-25%;
   top:280px;
  }
@@ -104,7 +105,7 @@ code {
   height: 364px;
   flex-shrink: 0;
   fill: rgba(205, 59, 0, 0.40);
-  filter: blur(35px);
+  filter: blur(100px);
   bottom:0px;
   left:-10%;
  }
@@ -119,7 +120,7 @@ code {
   height: 232px;
   flex-shrink: 0;
   fill: rgba(205, 59, 0, 0.40);
-  filter: blur(35px);
+  filter: blur(100px);
   bottom: 380px;
   left:-20%;
  }
@@ -133,24 +134,57 @@ code {
  .search-box-container{
   position: relative;
  }
- .search-slider-container{
+.slider {
+  -webkit-appearance: none;
   width: 80%;
+  height: 5px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  animation:searchSliderContainerContent 1s ease;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #656565;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #656565;
+  cursor: pointer;
+}
+ .search-slider-container {
+  width: 75%;
   margin: auto;
-  position: absolute;
-  top:60px;
-  left:50px;
-  animation: searchSlider 0.5s ease;
- }
- .search-box-height{
-  height: 936px;
- }
- .search-box{
-  width: 355px;
+  border-radius: 10px 10px 10px 10px;
+  animation: searchSliderContainer 1s ease;
+  box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.10) inset,
+    5px 0px 10px 0px rgba(0, 0, 0, 0.10) inset,
+    5px 0px 10px 0px rgba(0, 0, 0, 0.10) inset,
+    0px 5px 10px 0px rgba(0, 0, 0, 0.10) inset;
+  background: #FFF;
+  border: none;
+  padding: 10px;
+}
+
+.search-box {
+  width: 80%;
   height: 46px;
   flex-shrink: 0;
-  border-radius: 10px;
+  border-radius: 10px 10px 10px 10px;
   background: #FFF;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25) inset;
   color: #656565;
   font-family: Poppins;
   font-size: 16px;
@@ -161,7 +195,31 @@ code {
   padding-left: 10px;
   position: relative;
   transition: height 0.5s ease;
+  border: none;
+  margin-bottom: 5px;
+  box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.10) inset,
+    5px 0px 10px 0px rgba(0, 0, 0, 0.10) inset,
+    5px 0px 10px 0px rgba(0, 0, 0, 0.10) inset,
+    0px 5px 10px 0px rgba(0, 0, 0, 0.10) inset;
+}
+ .range-slider-label{
+  text-align: left;
+  color: #CD3B00;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
  }
+ .range-slider-label label{
+  /* opacity: 0; */
+  animation:searchSliderContainerContent 1s ease;
+ }
+ .search-box-height{
+  height: 936px;
+ }
+
  .search-filter-icon{
   position: absolute;
   top:0;
@@ -215,9 +273,10 @@ code {
     /* width: 355px;
     height: 170px; */
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.30);
+    background: rgb(255, 255, 255);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25) inset;
     padding: 10px;
+    z-index: 1111;
  }
  .organization-card-main{
   background-color: white;
@@ -252,13 +311,10 @@ code {
   line-height: normal;
  }
  .organization-address, .organization-description{
-  color: #656565;
+  color: #111111;
   font-family: Poppins;
   font-size: 13px;
   font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: capitalize;
  }
  .organization-card-footer{
   display: flex;
@@ -276,14 +332,25 @@ code {
   color: #656565;
  }
 }
-@keyframes searchSlider {
+@keyframes searchSliderContainer {
+  0% {
+    max-height: 0;
+  }
+  50% {
+    max-height: 23px;
+  }
+  100% {
+    max-height: 46px;
+  }
+}
+@keyframes searchSliderContainerContent {
   0%{
-    visibility: hidden;
+    opacity: 0;
   }
   50%{
-    visibility: hidden;
+    opacity: 0;
   }
   100%{
-    visibility: visible;
+    opacity: 1;
   }
 }
