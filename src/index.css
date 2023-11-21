@@ -81,9 +81,11 @@ code {
 
 }
 .home{
+  height: 100vh;
   text-align: center;
   background-image: url('/public/assets/imgs/app-background.png');
-  
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 @media only screen and (max-width: 430px) {
