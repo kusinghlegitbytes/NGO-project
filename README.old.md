@@ -1,2 +1,0 @@
-# NGO-project
-NGO Project

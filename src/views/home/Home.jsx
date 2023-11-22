@@ -1,74 +1,20 @@
-import React, { Fragment } from 'react'
-import Search from '../../UI/Search'
-import { LuLink } from "react-icons/lu";
-import { LuPhone } from "react-icons/lu";
-import Logo from '../../UI/Logo';
+import "./home.css"
+import Search from '../../components/search/Search'
+import Logo from "../../components/logo/Logo"
+import Tags from "./Tags"
+import OrganizationsList from "./OrganizationsList"
 const Home = () => {
-  return ( <Fragment>
+  return <div className='bg-neutral-100'>
     <Logo/>
+    <Search/>
     <div className='home'>
-        <Search/>
-        <div className='tags-container flex gap-1 flex-row'>
-            <div className='tag'>IT Service</div>
-            <div className='tag'>IT Service</div>
-            <div className='tag'>IT Service</div>
-        </div>
-        <div className='tags-container flex flex-row'>
-            <div className='tag'>IT Service</div>
-            <div className='tag'>IT Service</div>
-        </div>
-        <div className='filter-text-container'>
-            <span>Near By/Famous/Mostly Search</span>
-        </div>
-        <div className='organization-container'>
-            <div className='organization-card'>
-                <div className='organization-card-main'>
-                    <div className='organization-card-icon'>
-                        <img src='/assets/imgs/org1.png'/>
-                    </div>
-                    <div className='organization-card-text'>
-                        <div className='organization-title'>
-                            Organization Name
-                        </div>
-                        <div className='organization-address'>
-                            Address
-                        </div>                        
-                        <div className='organization-description'>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore sed numquam quo sit vel veritatis, iusto dolorum praesentium repellat, incidunt nesciunt voluptate debitis sint eius distinctio. At, impedit dolorum. Aspernatur?
-                        </div>                                                
-                    </div>
-                </div>
-                <div className='organization-card-footer'>
-                    <div><LuLink/><a href="mailto:test@gmail.com">test@gmail.com</a></div>                    
-                    <div><LuPhone/><a href="tel:+91 9999999999">+91 9999999999</a></div>                    
-                </div>
-            </div>
-            <div className='organization-card'>
-                <div className='organization-card-main'>
-                    <div className='organization-card-icon'>
-                        <img src='/assets/imgs/org2.png'/>
-                    </div>
-                    <div className='organization-card-text'>
-                        <div className='organization-title'>
-                            Organization Name
-                        </div>
-                        <div className='organization-address'>
-                            Address
-                        </div>                        
-                        <div className='organization-description'>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore sed numquam quo sit vel veritatis, iusto dolorum praesentium repellat, incidunt nesciunt voluptate debitis sint eius distinctio. At, impedit dolorum. Aspernatur?
-                        </div>                                                
-                    </div>
-                </div>
-                <div className='organization-card-footer'>
-                    <div><LuLink/><a href="mailto:test@gmail.com">test@gmail.com</a></div>                    
-                    <div><LuPhone/><a href="tel:+91 9999999999">+91 9999999999</a></div>                    
-                </div>
-            </div>
-        </div>
+    <Tags/>
+    <div className="text-center text-black-100 font-bold text-xl mt-8">
+        Near By/Famous/Mostly Search
     </div>
-    </Fragment>
-  )
+        <OrganizationsList/>
+    </div>
+  </div>
 }
 
 export default Home

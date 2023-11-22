@@ -1,0 +1,41 @@
+.search-card {
+    animation: SearchCard 1s ease;
+    overflow: hidden;
+}
+.animate-search{
+    animation: AnimateSearchComponent 1s ease;
+    animation-fill-mode: both;
+}
+  
+@keyframes SearchCard {
+    0% {
+      max-height: 0;
+    }
+    20% {
+      max-height: 50px;
+    }
+    40% {
+      max-height: 100px;
+    }
+    60% {
+      max-height: 150px;
+    }
+    80% {
+      max-height: 200px;
+    }
+    100% {
+      max-height: 250px;
+    }
+  }
+  @keyframes AnimateSearchComponent{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-25px);
+    }
+    100%{
+        transform: translateY(-50px);
+        width: 60%;
+    }
+  }

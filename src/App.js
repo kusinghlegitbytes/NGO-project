@@ -1,16 +1,17 @@
-import { Fragment } from "react";
 import Home from "./views/home/Home";
-import Background from "./layout/Background";
-import Results from "./views/search/Results";
+import SearchResults from "./views/search/SearchResults";
 import { Routes, Route } from "react-router-dom";
 function App() {
-  return <Fragment>
-    <Background>
+  return (
+    <div className="App">
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/results/:query" element={<Results/>}/>
+        <Route path="/search-results" element={<SearchResults/>}/>
       </Routes>
-    </Background>
-  </Fragment>
+      {/* <Home/> */}
+      {/* <SearchResults/> */}
+    </div>
+  );
 }
+
 export default App;

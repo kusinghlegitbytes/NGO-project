@@ -1,0 +1,21 @@
+.animate-logo{
+    animation: AnimateAppLogo 1s ease;
+    animation-fill-mode: both;
+}
+@keyframes AnimateAppLogo{
+    0%{
+        width: 384px;
+        height: 224px;
+        transform: translateY(-10px);
+    }
+    50%{
+        width: 300px;
+        height: 180px;
+        transform: translateY(-20px);
+    }
+    100%{
+        width: 200px;
+        height: 150px;
+        transform: translateY(-30px);
+    }
+}
