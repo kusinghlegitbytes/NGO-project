@@ -1,7 +1,8 @@
 import { LuLink } from "react-icons/lu";
 import { LuPhone } from "react-icons/lu";
+import "./card.css"
 const Card = () => {
-  return <div className="custom-shadow rounded-lg p-2">
+  return <div className="card-shadow rounded-lg p-2">
     <div className='flex flex-row gap-2'>
         <div className='bg-white h-6 rounded-xl mt-2'>
             <img src='/assets/imgs/org_icon_1.png'/>

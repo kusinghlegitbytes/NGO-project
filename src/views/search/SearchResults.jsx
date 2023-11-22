@@ -3,7 +3,13 @@ import Search from "../../components/search/Search"
 import Card from "../../components/card/Card"
 import Logo from "../../components/logo/Logo"
 import Tags from "../home/Tags"
+import AppContext from "../../ctx/AppContext"
+import { useContext, useEffect } from "react"
 const SearchResults = () => {
+  const {setAnimateSearchButton}=useContext(AppContext)
+  useEffect(()=>{
+    setAnimateSearchButton(false)
+  },[])
   return <div className='bg-neutral-100 pt-10'>
     <Logo/>
     <Search/>

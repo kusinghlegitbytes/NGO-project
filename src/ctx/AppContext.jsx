@@ -1,3 +1,6 @@
 import { createContext } from "react";
-const AppContext=createContext({})
+const AppContext=createContext({
+    animateSearchButton:false, 
+    setAnimateSearchButton:()=>{}
+})
 export default AppContext
