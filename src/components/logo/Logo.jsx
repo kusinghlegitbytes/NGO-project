@@ -1,12 +1,11 @@
 import { useState } from "react"
 import "./logo.css"
+import { useContext } from "react"
+import AppContext from "../../ctx/AppContext"
 const Logo = () => {
-  const [moveLogo, setMoveLogo]=useState(false)
-  const handleAnimateLogo=()=>{
-    setMoveLogo(true)
-  }
-  return <div className={`py-10`} onClick={handleAnimateLogo}>
-    <img src="/assets/imgs/logo.png" className={`w-96 h-56 mx-auto ${moveLogo?'animate-logo':''}`}/>
+  const {animateSearchButton}=useContext(AppContext)
+  return <div className={`py-10`}>
+    <img src="/assets/imgs/logo.png" className={`w-96 h-56 mx-auto ${animateSearchButton?'animate-logo':''}`}/>
   </div>
 }
 export default Logo

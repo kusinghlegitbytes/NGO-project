@@ -1,12 +1,14 @@
 import RangeSlider from "../range-slider/RangeSlider";
 import SearchCard from "./SearchCard";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useLocation } from "react-router-dom";
+import AppContext from "../../ctx/AppContext";
 const Search = () => {
   const [showRangeSlider, setShowRangeSlider]=useState(false)
   const [showSuggestions, setShowSuggestions]=useState(false)
   const [showRecent, setShowRecent]=useState(false)
-  const [searchClicked, setSearchClicked]=useState(false)
   const [query, setQuery]=useState('')
+  const { animateSearchButton, setAnimateSearchButton} = useContext(AppContext)
   const handleShowRangeSlider=()=>{
     setShowRangeSlider(prevState=>!prevState)
   }
@@ -23,10 +25,10 @@ const Search = () => {
     setShowRecent(false)
   }
   const handleSearchClick=()=>{
-    setSearchClicked(true)
+    setAnimateSearchButton(prevState=>!prevState)
   }
     return (
-      <div className={`w-1/3 mx-auto relative ${searchClicked?"animate-search":""}`}>
+      <div className={`w-1/3 mx-auto relative ${animateSearchButton?"animate-search":""}`}>
         <div className="flex flex-row">
           <input
             type='search'
