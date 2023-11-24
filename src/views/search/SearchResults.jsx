@@ -1,6 +1,6 @@
 import "./search-results.css"
 import Search from "../../components/search/Search"
-import Card from "../../components/card/Card"
+import Card from "./Card"
 import Logo from "../../components/logo/Logo"
 import Tags from "./Tags"
 import AppContext from "../../ctx/AppContext"
