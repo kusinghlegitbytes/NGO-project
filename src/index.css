@@ -61,3 +61,12 @@ input[type="search"]::-webkit-search-cancel-button{
     opacity: 1;
   }
 }
+
+/* ==== Media Queries ======== */
+/* 375px */
+@media(min-width:375px){
+  .logo-container{
+    width: 80%;
+    margin: auto;
+  }
+}

@@ -29,7 +29,7 @@ const Search = () => {
     setAnimateSearchButton(prevState=>!prevState)
   }
     return (
-      <div className={`w-1/3 mx-auto relative ${currentURL==="/search-results"?"animate-search":""}`}>
+      <div className={`w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 mx-auto relative ${currentURL==="/search-results"?"animate-search":""}`}>
         <div className="flex flex-row">
           <input
             type='search'
