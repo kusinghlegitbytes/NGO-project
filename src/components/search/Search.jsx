@@ -1,7 +1,7 @@
 import RangeSlider from "../range-slider/RangeSlider";
 import SearchCard from "./SearchCard";
 import { useState, useContext } from "react";
-import { useLocation } from "react-router-dom";
+import useCurrentURL from "../../hooks/useCurrentURL";
 import AppContext from "../../ctx/AppContext";
 const Search = () => {
   const [showRangeSlider, setShowRangeSlider]=useState(false)
@@ -9,6 +9,7 @@ const Search = () => {
   const [showRecent, setShowRecent]=useState(false)
   const [query, setQuery]=useState('')
   const { animateSearchButton, setAnimateSearchButton} = useContext(AppContext)
+  const currentURL=useCurrentURL()
   const handleShowRangeSlider=()=>{
     setShowRangeSlider(prevState=>!prevState)
   }
@@ -28,7 +29,7 @@ const Search = () => {
     setAnimateSearchButton(prevState=>!prevState)
   }
     return (
-      <div className={`w-1/3 mx-auto relative ${animateSearchButton?"animate-search":""}`}>
+      <div className={`w-1/3 mx-auto relative ${currentURL==="/search-results"?"animate-search":""}`}>
         <div className="flex flex-row">
           <input
             type='search'

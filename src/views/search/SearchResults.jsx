@@ -13,9 +13,11 @@ const SearchResults = () => {
   return <div className='bg-neutral-100 pt-10'>
     <Logo/>
     <Search/>
-    <main className="results-main p-10">
-      <Tags/>
-      <div className="grid grid-cols-2 gap-7 w-5/6 mx-auto">
+    <main className="results-main">
+      <div style={{marginTop:"-40px"}}>
+        <Tags/>
+      </div>
+      <div className="w-7/12 mx-auto grid grid-cols-2 mt-10 justify-around gap-3 pb-10">
         <Card/>
         <Card/>
         <Card/>

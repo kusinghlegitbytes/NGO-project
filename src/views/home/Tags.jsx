@@ -1,12 +1,11 @@
 import "./tags.css"
 import Tag from "./Tag"
-import { useContext } from "react"
-import AppContext from "../../ctx/AppContext"
+import useCurrentURL from "../../hooks/useCurrentURL"
 const Tags = () => {
-    const {animateSearchButton}=useContext(AppContext)
+  const currentURL=useCurrentURL()
   return (
     <div className='w-1/2 mx-auto mt-1'>
-      {!animateSearchButton && <>
+      {currentURL==="/" && <>
         <div className='flex flex-row justify-center gap-2 p-1'>
             <Tag/>
             <Tag/>
@@ -17,7 +16,7 @@ const Tags = () => {
             <Tag/>
         </div>
       </>}
-      {animateSearchButton && <div>
+      {currentURL==="/search-results" && <div>
         <div className='flex flex-row justify-center gap-2 p-1'>
             <Tag/>
             <Tag/>
