@@ -1,15 +1,18 @@
 import RangeSlider from "../range-slider/RangeSlider";
 import SearchCard from "./SearchCard";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import useCurrentURL from "../../hooks/useCurrentURL";
-import AppContext from "../../ctx/AppContext";
+import { useContext } from "react";
+import SearchContext from "../../ctx/SearchContext";
+import { useSelector } from "react-redux";
 const Search = () => {
   const [showRangeSlider, setShowRangeSlider]=useState(false)
   const [showSuggestions, setShowSuggestions]=useState(false)
   const [showRecent, setShowRecent]=useState(false)
-  const [query, setQuery]=useState('')
-  const { animateSearchButton, setAnimateSearchButton} = useContext(AppContext)
+  const {searchQuery, setSearchQuery}=useContext(SearchContext)
   const currentURL=useCurrentURL()
+  const {ngos}=useSelector(state=>state)
+  const ngoSuggestions=ngos.filter(ngo=>ngo.name.toLowerCase().startsWith(searchQuery.toLowerCase()))
   const handleShowRangeSlider=()=>{
     setShowRangeSlider(prevState=>!prevState)
   }
@@ -18,7 +21,7 @@ const Search = () => {
     setShowSuggestions(false) 
   }
   const handleShowSuggestions=(e)=>{
-    setQuery(e.target.value)
+    setSearchQuery(e.target.value)
     if(e.target.value===""){
       setShowRecent(true)
     }
@@ -26,7 +29,7 @@ const Search = () => {
     setShowRecent(false)
   }
   const handleSearchClick=()=>{
-    setAnimateSearchButton(prevState=>!prevState)
+    console.log("navigate")
   }
     return (
       <div className={`w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 mx-auto relative ${currentURL==="/search-results"?"animate-search":""}`}>
@@ -44,8 +47,8 @@ const Search = () => {
           <img src="/assets/imgs/filter_icon.png" className="w-4/5" onClick={handleShowRangeSlider}/>
         </div>
           {showRangeSlider && <RangeSlider/>}
-          {showRecent && query.length<1 && <SearchCard text="Recent Searches"/>}
-          {showSuggestions && query.length>=1 && <SearchCard text="Suggestions"/>}
+          {showRecent && searchQuery.length<1 && <SearchCard text="Recent Searches"/>}
+          {showSuggestions && searchQuery.length>=1 && <SearchCard ngoSuggestions={ngoSuggestions}/>}
       </div>
     );
   };
