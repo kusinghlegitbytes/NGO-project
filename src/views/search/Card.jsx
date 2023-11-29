@@ -1,8 +1,7 @@
 import { LuLink } from "react-icons/lu";
 import { LuPhone } from "react-icons/lu";
 import "../../components/card/card.css"
-import useCurrentURL from "../../hooks/useCurrentURL";
-const Card = () => {
+const Card = ({ngo}) => {
   let iconSize=0
   let fontSize=""
   let descPaddingRight=""
@@ -17,7 +16,7 @@ const Card = () => {
             <img src='/assets/imgs/org_icon_1.png'/>
         </div>
         <div>
-          <h2 className="text-sm font-semibold">Organization Name</h2>
+          <h2 className="text-sm font-semibold">{ngo.name}</h2>
           <span className="text-xs font-normal">Address</span>
           <p className={`text-xs ${descPaddingRight}`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptatem adipisci suscipit maxime a atque quas quidem culpa exercitationem? Facere veritatis optio sapiente, laborum est cumque harum. Soluta, maiores id?</p>
         </div>

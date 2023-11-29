@@ -14,7 +14,8 @@ const SearchResults = () => {
   useEffect(()=>{
     setAnimateSearchButton(false)
   },[])
-  
+  const filteredNGOs=ngos.filter(ngo=>ngo.name.toLowerCase()===searchQuery.toLowerCase())
+
   return <div className='bg-neutral-100 pt-10'>
     <Logo/>
     <Search/>
@@ -23,14 +24,7 @@ const SearchResults = () => {
         <Tags/>
       </div>
       <div className="w-7/12 mx-auto grid grid-cols-1 sm:grid-cols-2 mt-10 justify-around gap-3 pb-10">
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        {filteredNGOs.map(ngo=><Card ngo={ngo}/>)}
       </div>
     </main>
   </div>
