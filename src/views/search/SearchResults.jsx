@@ -5,13 +5,16 @@ import Logo from "../../components/logo/Logo"
 import Tags from "./Tags"
 import AppContext from "../../ctx/AppContext"
 import { useContext, useEffect } from "react"
+import { useSelector } from "react-redux"
 import SearchContext from "../../ctx/SearchContext"
 const SearchResults = () => {
   const {setAnimateSearchButton}=useContext(AppContext)
-  const {setShowRecent, showRecent, showSuggestions, setShowSuggestions}=useContext(SearchContext)
+  const {searchQuery}=useContext(SearchContext)
+  const {ngos}=useSelector(state=>state)
   useEffect(()=>{
     setAnimateSearchButton(false)
   },[])
+  
   return <div className='bg-neutral-100 pt-10'>
     <Logo/>
     <Search/>

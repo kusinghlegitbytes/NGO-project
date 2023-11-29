@@ -7,8 +7,6 @@ import SearchContext from "../../ctx/SearchContext";
 import { useSelector } from "react-redux";
 const Search = () => {
   const [showRangeSlider, setShowRangeSlider]=useState(false)
-  // const [showSuggestions, setShowSuggestions]=useState(false)
-  // const [showRecent, setShowRecent]=useState(false)
   const {searchQuery, setSearchQuery, showRecent, setShowRecent, showSuggestions, setShowSuggestions}=useContext(SearchContext)
   const currentURL=useCurrentURL()
   const {ngos}=useSelector(state=>state)
@@ -17,6 +15,7 @@ const Search = () => {
     setShowRangeSlider(prevState=>!prevState)
   }
   const handleShowRecent=e=>{
+    setSearchQuery("")
     setShowRecent(true)   
     setShowSuggestions(false) 
   }
