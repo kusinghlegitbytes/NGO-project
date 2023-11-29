@@ -19,7 +19,7 @@ const SearchResults = () => {
     dispatch(fetchNGOsAsync())
   },[])
   const filteredNGOs=ngos.filter(ngo=>ngo.name.toLowerCase()===searchQuery.toLowerCase())
-
+  console.log(filteredNGOs.length, "==========")
   return <div className='bg-neutral-100 pt-10'>
     <Logo/>
     <Search/>
@@ -28,7 +28,7 @@ const SearchResults = () => {
         <Tags/>
       </div>
       <div className="w-7/12 mx-auto grid grid-cols-1 sm:grid-cols-2 mt-10 justify-around gap-3 pb-10">
-        {filteredNGOs.map(ngo=><Card ngo={ngo}/>)}
+        {filteredNGOs[0] ? filteredNGOs.map(ngo=><Card ngo={ngo}/>):<div className="text-center text-red-500 mx-auto w-1/2">Nothing to show</div>}
       </div>
     </main>
   </div>
