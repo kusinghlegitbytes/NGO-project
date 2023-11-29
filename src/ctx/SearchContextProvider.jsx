@@ -2,9 +2,15 @@ import { useState } from "react";
 import SearchContext from "./SearchContext";
 const SearchContextProvider=({children})=>{
     const [searchQuery, setSearchQuery]=useState("")
+    const [showSuggestions, setShowSuggestions]=useState(false)
+    const [showRecent, setShowRecent]=useState(false)
     const value={
         searchQuery, 
-        setSearchQuery
+        setSearchQuery,
+        showRecent, 
+        setShowRecent,
+        showSuggestions,
+        setShowSuggestions
     }
     return <SearchContext.Provider value={value}>
         {children}

@@ -5,8 +5,10 @@ import Logo from "../../components/logo/Logo"
 import Tags from "./Tags"
 import AppContext from "../../ctx/AppContext"
 import { useContext, useEffect } from "react"
+import SearchContext from "../../ctx/SearchContext"
 const SearchResults = () => {
   const {setAnimateSearchButton}=useContext(AppContext)
+  const {setShowRecent, showRecent, showSuggestions, setShowSuggestions}=useContext(SearchContext)
   useEffect(()=>{
     setAnimateSearchButton(false)
   },[])

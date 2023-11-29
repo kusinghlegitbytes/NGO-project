@@ -7,9 +7,9 @@ import SearchContext from "../../ctx/SearchContext";
 import { useSelector } from "react-redux";
 const Search = () => {
   const [showRangeSlider, setShowRangeSlider]=useState(false)
-  const [showSuggestions, setShowSuggestions]=useState(false)
-  const [showRecent, setShowRecent]=useState(false)
-  const {searchQuery, setSearchQuery}=useContext(SearchContext)
+  // const [showSuggestions, setShowSuggestions]=useState(false)
+  // const [showRecent, setShowRecent]=useState(false)
+  const {searchQuery, setSearchQuery, showRecent, setShowRecent, showSuggestions, setShowSuggestions}=useContext(SearchContext)
   const currentURL=useCurrentURL()
   const {ngos}=useSelector(state=>state)
   const ngoSuggestions=ngos.filter(ngo=>ngo.name.toLowerCase().startsWith(searchQuery.toLowerCase()))
@@ -47,7 +47,7 @@ const Search = () => {
           <img src="/assets/imgs/filter_icon.png" className="w-4/5" onClick={handleShowRangeSlider}/>
         </div>
           {showRangeSlider && <RangeSlider/>}
-          {showRecent && searchQuery.length<1 && <SearchCard text="Recent Searches"/>}
+          {showRecent && searchQuery.length<1 && <SearchCard ngoSuggestions={ngoSuggestions}/>}
           {showSuggestions && searchQuery.length>=1 && <SearchCard ngoSuggestions={ngoSuggestions}/>}
       </div>
     );

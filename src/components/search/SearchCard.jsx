@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import { BsClock } from "react-icons/bs";
 import { IoClose } from "react-icons/io5";
 import "./search.css"
 import { useNavigate } from "react-router-dom";
+import SearchContext from "../../ctx/SearchContext";
 const SearchCard = ({ngoSuggestions}) => {
     const navigate=useNavigate()
+    const {setShowRecent, setShowSuggestions}=useContext(SearchContext)
     const handleNavigate=()=>{
+        setShowSuggestions(false)
+        setShowRecent(false)
         navigate("/search-results")
     }
     const handleClose=()=>{

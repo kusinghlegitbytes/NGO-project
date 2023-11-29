@@ -1,6 +1,10 @@
 import { createContext } from "react";
 const SearchContext=createContext({
     searchQuery:'',
-    setSearchQuery:()=>{}
+    setSearchQuery:()=>{},
+    showSuggestions:false,
+    setShowSuggestions:()=>{},
+    showRecent:false,
+    setShowRecent:()=>{}
 })
 export default SearchContext
