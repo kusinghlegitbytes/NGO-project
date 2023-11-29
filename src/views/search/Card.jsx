@@ -12,8 +12,12 @@ const Card = ({ngo}) => {
     descPaddingRight="pr-6"
   return <div className="card-shadow rounded-lg p-2">
     <div className='flex flex-row gap-2'>
-        <div className={`bg-white ${orgIconBGSize} ${orgIconBGRadius} mt-2 max-w-full`}>
-            <img src='/assets/imgs/org_icon_1.png'/>
+        <div className={`bg-white ${orgIconBGSize} ${orgIconBGRadius} mt-2`} style={{
+          maxWidth:"20px"
+        }}>
+            <img src='/assets/imgs/org_icon_1.png' style={{
+          maxWidth:"20px"
+        }}/>
         </div>
         <div>
           <h2 className="text-sm font-semibold">{ngo.name}</h2>

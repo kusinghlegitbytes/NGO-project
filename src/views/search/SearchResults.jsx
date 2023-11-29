@@ -7,12 +7,16 @@ import AppContext from "../../ctx/AppContext"
 import { useContext, useEffect } from "react"
 import { useSelector } from "react-redux"
 import SearchContext from "../../ctx/SearchContext"
+import { useDispatch } from "react-redux"
+import {fetchNGOsAsync} from "../../store/apis/ngoAPIs"
 const SearchResults = () => {
   const {setAnimateSearchButton}=useContext(AppContext)
   const {searchQuery}=useContext(SearchContext)
   const {ngos}=useSelector(state=>state)
+  const dispatch=useDispatch()
   useEffect(()=>{
     setAnimateSearchButton(false)
+    dispatch(fetchNGOsAsync())
   },[])
   const filteredNGOs=ngos.filter(ngo=>ngo.name.toLowerCase()===searchQuery.toLowerCase())
 
