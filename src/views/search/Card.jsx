@@ -11,7 +11,7 @@ const Card = ({ngo}) => {
     fontSize="text-xs"    
     descPaddingRight="pr-6"
   return <div className="card-shadow rounded-lg p-2">
-    <div className='flex flex-row gap-2'>
+    <div className='flex flex-row gap-2 h-36'>
         <div className={`bg-white ${orgIconBGSize} ${orgIconBGRadius} mt-2`} style={{
           maxWidth:"20px"
         }}>
@@ -19,10 +19,10 @@ const Card = ({ngo}) => {
           maxWidth:"20px"
         }}/>
         </div>
-        <div>
+        <div className="flex flex-col justify-between">
           <h2 className="text-sm font-semibold">{ngo.name}</h2>
-          <span className="text-xs font-normal">Address</span>
-          <p className={`text-xs ${descPaddingRight}`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptatem adipisci suscipit maxime a atque quas quidem culpa exercitationem? Facere veritatis optio sapiente, laborum est cumque harum. Soluta, maiores id?</p>
+          <span className="text-xs font-normal">{ngo.address.completeAddress}</span>
+          <p className={`text-xs ${descPaddingRight}`}>{ngo.description.substring(0,200)}</p>
         </div>
     </div>
     <div className={`grid w-full sm:w-full gap-y-1 grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 pt-4 ${fontSize}`}>

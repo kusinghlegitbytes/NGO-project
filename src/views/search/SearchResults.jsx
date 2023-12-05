@@ -18,7 +18,7 @@ const SearchResults = () => {
     setAnimateSearchButton(false)
     dispatch(fetchNGOsAsync())
   },[])
-  const filteredNGOs=ngos.filter(ngo=>ngo.name.toLowerCase()===searchQuery.toLowerCase())
+  const filteredNGOs=ngos.filter(ngo=>ngo.name.toLowerCase().includes(searchQuery.toLowerCase()))
   console.log(filteredNGOs.length, "==========")
   return <div className='bg-neutral-100 pt-10'>
     <Logo/>

@@ -5,12 +5,14 @@ import useCurrentURL from "../../hooks/useCurrentURL";
 import { useContext } from "react";
 import SearchContext from "../../ctx/SearchContext";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const Search = () => {
   const [showRangeSlider, setShowRangeSlider]=useState(false)
   const {searchQuery, setSearchQuery, showRecent, setShowRecent, showSuggestions, setShowSuggestions}=useContext(SearchContext)
   const currentURL=useCurrentURL()
   const {ngos}=useSelector(state=>state)
   const ngoSuggestions=ngos.filter(ngo=>ngo.name.toLowerCase().startsWith(searchQuery.toLowerCase()))
+  const navigate=useNavigate()
   const handleShowRangeSlider=()=>{
     setShowRangeSlider(prevState=>!prevState)
   }
@@ -28,7 +30,9 @@ const Search = () => {
     setShowRecent(false)
   }
   const handleSearchClick=()=>{
-    console.log("navigate")
+    setShowSuggestions(false)
+    setShowRecent(false)
+    navigate("/search-results")
   }
     return (
       <div className={`w-5/6 sm:w-1/2 md:w-1/3 lg:w-1/4 mx-auto relative ${currentURL==="/search-results"?"animate-search":""}`}>
