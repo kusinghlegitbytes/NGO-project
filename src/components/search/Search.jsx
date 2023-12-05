@@ -50,8 +50,8 @@ const Search = () => {
           <img src="/assets/imgs/filter_icon.png" className="w-4/5" onClick={handleShowRangeSlider}/>
         </div>
           {showRangeSlider && <RangeSlider/>}
-          {showRecent && searchQuery.length<1 && <SearchCard ngoSuggestions={ngoSuggestions}/>}
-          {showSuggestions && searchQuery.length>=1 && <SearchCard ngoSuggestions={ngoSuggestions}/>}
+          {showRecent && searchQuery.length<1 && ngoSuggestions.length>0 && <SearchCard ngoSuggestions={ngoSuggestions}/>}
+          {showSuggestions && searchQuery.length>=1 && ngoSuggestions.length ? <SearchCard ngoSuggestions={ngoSuggestions}/>:null}
       </div>
     );
   };
